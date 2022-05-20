@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const AddManufacturer = (props) => {
-  const [pagesState, setPagesState] = useState({});
+  const [manufacturerState, setManufacturerState] = useState({});
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setPagesState((values) => ({ ...values, [name]: value }));
+    setManufacturerState((values) => ({ ...values, [name]: value }));
   };
 
   const handleSubmit = async (event) => {
@@ -16,9 +16,9 @@ const AddManufacturer = (props) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: pagesState.name,
+        name: manufacturerState.name,
       }),
-    }).catch(console.log(pagesState.description));
+    }).catch(console.log(manufacturerState.name));
   };
   return (
     <>
@@ -31,7 +31,7 @@ const AddManufacturer = (props) => {
               type='text'
               name='name'
               class='form-control'
-              value={pagesState.name || ''}
+              value={manufacturerState.name || ''}
               onChange={handleChange}
             />
           </label>

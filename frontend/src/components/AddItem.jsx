@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const AddItem = (props) => {
-  const [pagesState, setPagesState] = useState({});
+  const [itemState, setItemState] = useState({});
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setPagesState((values) => ({ ...values, [name]: value }));
+    setItemState((values) => ({ ...values, [name]: value }));
   };
 
   const handleSubmit = async (event) => {
@@ -16,10 +16,10 @@ const AddItem = (props) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: pagesState.description,
-        description: pagesState.name,
+        name: itemState.description,
+        description: itemState.name,
       }),
-    }).catch(console.log(pagesState.description));
+    }).catch(console.log(itemState.description));
   };
   return (
     <>
@@ -32,7 +32,7 @@ const AddItem = (props) => {
               type='text'
               name='name'
               class='form-control'
-              value={pagesState.name || ''}
+              value={itemState.name || ''}
               onChange={handleChange}
             />
           </label>
@@ -43,7 +43,7 @@ const AddItem = (props) => {
               type='text'
               name='description'
               class='form-control'
-              value={pagesState.description || ''}
+              value={itemState.description || ''}
               onChange={handleChange}
             />
           </label>
