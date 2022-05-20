@@ -22,6 +22,16 @@ function Navigation() {
                   Manufacturers
                 </NavLink>
               </li>
+              <li className='nav-item'>
+                <NavLink className='nav-link' to='/AddItem'>
+                  Add Item
+                </NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink className='nav-link' to='/AddManufacturer'>
+                  Add Manufacturer
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

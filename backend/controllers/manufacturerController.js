@@ -11,6 +11,15 @@ const getManufacturers = asyncHandler(async (req, res) => {
   res.status(200).json(manufacturer);
 });
 
+// @desc    Get specific manufacturers
+// @route   GET /api/manufactuers
+// @access  Public
+const getSpecificManufacturers = asyncHandler(async (req, res) => {
+  const manufacturer = await Manufacturer.find(req.params.id);
+
+  res.status(200).json(manufacturer);
+});
+
 // @desc    Set manufacturer
 // @route   POST /api/manufactuers
 // @access  Public
@@ -70,4 +79,5 @@ module.exports = {
   setManufacturer,
   updateManufacturer,
   deleteManufacturer,
+  getSpecificManufacturers,
 };

@@ -27,7 +27,7 @@ const setItem = asyncHandler(async (req, res) => {
 
   const item = await Item.create({
     name: req.body.name,
-    description: req.body.text,
+    description: req.body.description,
   });
 
   res.status(200).json(item);

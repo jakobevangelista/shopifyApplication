@@ -6,6 +6,7 @@ const {
   updateItem,
   deleteItem,
 } = require('../controllers/itemController');
+const Item = require('../models/itemModel');
 
 router.route('/getItems').get(getItems);
 router.route('/setItem').post(setItem);
